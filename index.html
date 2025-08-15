@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A’LIVE — Music • Poetry • Art • Events</title>
+  <meta name="description" content="A’LIVE — an arts & entertainment community curating soulful music, spoken word poetry, visual art, and immersive events." />
+  <meta property="og:title" content="A’LIVE — Music • Poetry • Art • Events" />
+  <meta property="og:description" content="Curating soulful sessions and immersive events. Join the community." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='%230ea5e9'/%3E%3Cpath d='M7 13c3-8 7-8 10 0' stroke='white' stroke-width='2' fill='none'/%3E%3C/svg%3E" />
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind config (optional tweaks) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9', /* primary accent */
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e'
+            },
+            accent: {
+              500: '#f472b6' /* gentle magenta for artsy touch */
+            }
+          },
+          boxShadow: {
+            soft: '0 10px 30px rgba(2,132,199,0.15)'
+          },
+          keyframes: {
+            floaty: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-6px)' } },
+            fadeUp: { '0%': { opacity: 0, transform: 'translateY(16px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } }
+          },
+          animation: {
+            floaty: 'floaty 6s ease-in-out infinite',
+            fadeUp: 'fadeUp .8s ease-out forwards'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Smooth scrolling for anchor links */
+    html { scroll-behavior: smooth; }
+    /* Focus ring for accessibility */
+    a:focus-visible, button:focus-visible { outline: 3px solid #38bdf8; outline-offset: 2px; }
+  </style>
+</head>
+<body class="bg-white text-slate-900 antialiased">
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-slate-100">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#" class="flex items-center gap-2 font-semibold tracking-tight">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-500 text-white">A</span>
+          <span class="text-slate-900">A’LIVE</span>
+        </a>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-lg p-2 hover:bg-slate-100 focus-visible:outline-none" aria-label="Open menu" aria-expanded="false">
+          <svg class="h-6 w-6 text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <ul id="menu" class="hidden md:flex items-center gap-6 text-sm">
+          <li><a href="#about" class="hover:text-brand-700">About</a></li>
+          <li><a href="#pillars" class="hover:text-brand-700">Pillars</a></li>
+          <li><a href="#events" class="hover:text-brand-700">Events</a></li>
+          <li><a href="#gallery" class="hover:text-brand-700">Gallery</a></li>
+          <li><a href="#partners" class="hover:text-brand-700">Partners</a></li>
+          <li><a href="#contact" class="hover:text-brand-700">Contact</a></li>
+          <li>
+            <a href="https://instagram.com/alive.sessions" target="_blank" class="inline-flex items-center gap-2 rounded-full bg-brand-600 px-4 py-2 font-medium text-white shadow-soft hover:bg-brand-700">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a6 6 0 100 12 6 6 0 000-12zm0 2.2a3.8 3.8 0 110 7.6 3.8 3.8 0 010-7.6zM18 6.5a1 1 0 100 2 1 1 0 000-2z"/></svg>
+              Follow
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- Mobile menu -->
+      <ul id="mobileMenu" class="md:hidden hidden flex-col gap-3 py-3 text-sm">
+        <li><a href="#about" class="block rounded-md px-3 py-2 hover:bg-slate-100">About</a></li>
+        <li><a href="#pillars" class="block rounded-md px-3 py-2 hover:bg-slate-100">Pillars</a></li>
+        <li><a href="#events" class="block rounded-md px-3 py-2 hover:bg-slate-100">Events</a></li>
+        <li><a href="#gallery" class="block rounded-md px-3 py-2 hover:bg-slate-100">Gallery</a></li>
+        <li><a href="#partners" class="block rounded-md px-3 py-2 hover:bg-slate-100">Partners</a></li>
+        <li><a href="#contact" class="block rounded-md px-3 py-2 hover:bg-slate-100">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-50 to-white">
+    <div class="absolute inset-0 -z-10 opacity-20 bg-[radial-gradient(600px_circle_at_20%_20%,theme(colors.accent.500),transparent_40%),radial-gradient(600px_circle_at_80%_0%,theme(colors.brand.400),transparent_40%)]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-2 gap-10 items-center">
+      <div class="space-y-6 animate-fadeUp">
+        <span class="inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-brand-700 ring-1 ring-brand-200">
+          Arts & Entertainment
+          <span class="h-1 w-1 rounded-full bg-brand-500"></span>
+          Music • Poetry • Art • Events
+        </span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900">
+          A’LIVE — Curating <span class="text-brand-600">soulful sessions</span> & immersive events
+        </h1>
+        <p class="max-w-xl text-slate-700">
+          We celebrate authenticity through live music, spoken word poetry, visual arts, and community-driven events. Join the movement and experience creativity that feels truly alive.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#events" class="inline-flex items-center rounded-full bg-brand-600 px-5 py-3 text-white font-semibold shadow-soft hover:bg-brand-700">Explore Events</a>
+          <a href="https://instagram.com/alive.sessions" target="_blank" class="inline-flex items-center gap-2 rounded-full px-5 py-3 font-semibold text-brand-700 ring-1 ring-brand-200 hover:bg-brand-50">
+            Follow on Instagram
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/><path d="M19 19H5V5h7V3H5C3.897 3 3 3.897 3 5v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-7h-2v7z"/></svg>
+          </a>
+        </div>
+        <p class="text-xs text-slate-500">In collaboration with <span class="font-semibold text-slate-700">@cloud9festival.in</span> & <span class="font-semibold text-slate-700">@breathe_indie</span></p>
+      </div>
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1600&auto=format&fit=crop" alt="Musicians performing live on stage" class="rounded-2xl shadow-xl ring-1 ring-slate-200 animate-floaty" />
+        <div class="absolute -bottom-6 -left-6 hidden sm:block rounded-2xl bg-white p-4 shadow-soft ring-1 ring-slate-200">
+          <p class="text-sm font-semibold text-slate-700">A’LIVE Sessions</p>
+          <p class="text-xs text-slate-500">Music • Poetry • Art</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-10 items-start">
+      <div>
+        <h2 class="text-3xl font-bold tracking-tight text-slate-900">Why A’LIVE</h2>
+        <p class="mt-4 text-slate-700">
+          A’LIVE is a vibrant community of artists and audiences who believe in the power of raw, unfiltered expression. We curate intimate sessions and large-format showcases to bring stories, melodies, and visuals to life.
+        </p>
+        <ul class="mt-6 space-y-3 text-slate-700">
+          <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Authentic live experiences that connect creators and audiences.</li>
+          <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Cross-disciplinary programming across music, poetry, and visual art.</li>
+          <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Community-first curation with emerging and established talent.</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl bg-brand-50 p-6 ring-1 ring-brand-100">
+        <h3 class="text-xl font-semibold text-brand-800">Quick Snapshot</h3>
+        <dl class="mt-4 grid grid-cols-2 gap-4">
+          <div class="rounded-xl bg-white p-4 ring-1 ring-slate-200">
+            <dt class="text-xs uppercase tracking-wide text-slate-500">Focus</dt>
+            <dd class="text-slate-800 font-semibold">Music • Poetry • Art</dd>
+          </div>
+          <div class="rounded-xl bg-white p-4 ring-1 ring-slate-200">
+            <dt class="text-xs uppercase tracking-wide text-slate-500">Category</dt>
+            <dd class="text-slate-800 font-semibold">Arts & Entertainment</dd>
+          </div>
+          <div class="rounded-xl bg-white p-4 ring-1 ring-slate-200">
+            <dt class="text-xs uppercase tracking-wide text-slate-500">Collabs</dt>
+            <dd class="text-slate-800 font-semibold">@cloud9festival.in</dd>
+          </div>
+          <div class="rounded-xl bg-white p-4 ring-1 ring-slate-200">
+            <dt class="text-xs uppercase tracking-wide text-slate-500">Community</dt>
+            <dd class="text-slate-800 font-semibold">@breathe_indie</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillars -->
+  <section id="pillars" class="bg-gradient-to-b from-white to-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl font-bold tracking-tight text-slate-900 text-center">Our Pillars</h2>
+      <p class="mt-3 text-center text-slate-700 max-w-2xl mx-auto">Four streams, one pulse — experiences that feel alive.</p>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-200 shadow-sm hover:shadow-md transition">
+          <h3 class="font-semibold text-slate-900">Music</h3>
+          <p class="mt-2 text-sm text-slate-600">Soulful sets, indie acts, acoustic evenings, and festival stages.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-200 shadow-sm hover:shadow-md transition">
+          <h3 class="font-semibold text-slate-900">Poetry</h3>
+          <p class="mt-2 text-sm text-slate-600">Spoken word that moves hearts and sparks conversations.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-200 shadow-sm hover:shadow-md transition">
+          <h3 class="font-semibold text-slate-900">Art</h3>
+          <p class="mt-2 text-sm text-slate-600">Live art, installations, and showcases by emerging creators.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-200 shadow-sm hover:shadow-md transition">
+          <h3 class="font-semibold text-slate-900">Events</h3>
+          <p class="mt-2 text-sm text-slate-600">Intimate sessions to large gatherings designed to connect.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events -->
+  <section id="events" class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="flex items-end justify-between gap-6">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900">Upcoming Events</h2>
+          <p class="mt-2 text-slate-700">Catch our next sessions — limited seats.</p>
+        </div>
+        <a href="#contact" class="hidden sm:inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold text-brand-700 ring-1 ring-brand-200 hover:bg-brand-50">Partner with us</a>
+      </div>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        <!-- Card 1 -->
+        <article class="rounded-2xl ring-1 ring-slate-200 overflow-hidden hover:shadow-md transition">
+          <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1200&auto=format&fit=crop" alt="Indie music night" class="h-44 w-full object-cover" />
+          <div class="p-5">
+            <h3 class="font-semibold text-slate-900">Indie Evenings</h3>
+            <p class="mt-1 text-sm text-slate-600">An intimate set with acoustic & indie acts.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="text-xs text-slate-500">Fri • 7:30 PM</span>
+              <a href="#contact" class="text-brand-700 font-medium hover:underline">Get Pass</a>
+            </div>
+          </div>
+        </article>
+        <!-- Card 2 -->
+        <article class="rounded-2xl ring-1 ring-slate-200 overflow-hidden hover:shadow-md transition">
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop" alt="Poetry open mic" class="h-44 w-full object-cover" />
+          <div class="p-5">
+            <h3 class="font-semibold text-slate-900">Spoken Word Circle</h3>
+            <p class="mt-1 text-sm text-slate-600">Open mic & features from the community.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="text-xs text-slate-500">Sat • 6:00 PM</span>
+              <a href="#contact" class="text-brand-700 font-medium hover:underline">Register</a>
+            </div>
+          </div>
+        </article>
+        <!-- Card 3 -->
+        <article class="rounded-2xl ring-1 ring-slate-200 overflow-hidden hover:shadow-md transition">
+          <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=1200&auto=format&fit=crop" alt="Art showcase" class="h-44 w-full object-cover" />
+          <div class="p-5">
+            <h3 class="font-semibold text-slate-900">Art & Light</h3>
+            <p class="mt-1 text-sm text-slate-600">Live art & installations — immersive walk-through.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="text-xs text-slate-500">Sun • 5:00 PM</span>
+              <a href="#contact" class="text-brand-700 font-medium hover:underline">RSVP</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl font-bold tracking-tight text-slate-900 text-center">Gallery</h2>
+      <p class="mt-2 text-center text-slate-700 max-w-2xl mx-auto">Glimpses from our sessions — music, poetry, and art coming together.</p>
+      <div class="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+        <img class="h-40 w-full object-cover rounded-xl ring-1 ring-white/60" src="https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=800&auto=format&fit=crop" alt="Singer performing" />
+        <img class="h-40 w-full object-cover rounded-xl ring-1 ring-white/60" src="https://images.unsplash.com/photo-1495181941196-bcaaeee30a0c?q=80&w=800&auto=format&fit=crop" alt="Audience enjoying show" />
+        <img class="h-40 w-full object-cover rounded-xl ring-1 ring-white/60" src="https://images.unsplash.com/photo-1464375117522-1311dd7d0cd5?q=80&w=800&auto=format&fit=crop" alt="Poet on stage" />
+        <img class="h-40 w-full object-cover rounded-xl ring-1 ring-white/60" src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=800&auto=format&fit=crop" alt="Live painting" />
+        <img class="h-40 w-full object-cover rounded-xl ring-1 ring-white/60" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800&auto=format&fit=crop" alt="Lights and stage" />
+        <img class="h-40 w-full object-cover rounded-xl ring-1 ring-white/60" src="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=800&auto=format&fit=crop" alt="Guitar closeup" />
+      </div>
+      <div class="text-center mt-8">
+        <a href="https://instagram.com/alive.sessions" target="_blank" class="inline-flex items-center rounded-full bg-white px-5 py-3 font-semibold text-slate-800 ring-1 ring-slate-200 hover:bg-slate-50">See more on Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl font-bold tracking-tight text-slate-900 text-center">What People Say</h2>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <figure class="rounded-2xl bg-brand-50 p-6 ring-1 ring-brand-100">
+          <blockquote class="text-slate-700">“A’LIVE brings the kind of intimacy that’s rare — every session feels personal and powerful.”</blockquote>
+          <figcaption class="mt-4 text-sm text-slate-500">— Audience Member</figcaption>
+        </figure>
+        <figure class="rounded-2xl bg-brand-50 p-6 ring-1 ring-brand-100">
+          <blockquote class="text-slate-700">“As an artist, I felt seen and supported. The curation is on point.”</blockquote>
+          <figcaption class="mt-4 text-sm text-slate-500">— Featured Poet</figcaption>
+        </figure>
+        <figure class="rounded-2xl bg-brand-50 p-6 ring-1 ring-brand-100">
+          <blockquote class="text-slate-700">“From sound to lights, the production quality elevates the art.”</blockquote>
+          <figcaption class="mt-4 text-sm text-slate-500">— Indie Musician</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section id="partners" class="bg-gradient-to-b from-white to-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl font-bold tracking-tight text-slate-900 text-center">Partners & Collaborations</h2>
+      <p class="mt-2 text-center text-slate-700">Proud to collaborate with communities and festivals.</p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <span class="inline-flex items-center rounded-full bg-white px-4 py-2 ring-1 ring-slate-200 text-slate-700">@cloud9festival.in</span>
+        <span class="inline-flex items-center rounded-full bg-white px-4 py-2 ring-1 ring-slate-200 text-slate-700">@breathe_indie</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / CTA -->
+  <section id="contact" class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-10">
+      <div>
+        <h2 class="text-3xl font-bold tracking-tight text-slate-900">Book a Session • Partner with Us</h2>
+        <p class="mt-3 text-slate-700">For bookings, collaborations, or to feature at our next event, drop us a message. We’ll get back within 24–48 hours.</p>
+        <ul class="mt-6 space-y-3 text-slate-700">
+          <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Artist showcases & intimate sets</li>
+          <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Poetry open mics & features</li>
+          <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Visual art pop-ups & installations</li>
+        </ul>
+        <div class="mt-6 flex gap-3">
+          <a href="mailto:hello@alive.sessions" class="inline-flex items-center rounded-full bg-brand-600 px-5 py-3 font-semibold text-white shadow-soft hover:bg-brand-700">Email Us</a>
+          <a href="https://instagram.com/alive.sessions" target="_blank" class="inline-flex items-center rounded-full px-5 py-3 font-semibold text-brand-700 ring-1 ring-brand-200 hover:bg-brand-50">DM on Instagram</a>
+        </div>
+        <p class="mt-3 text-xs text-slate-500">Note: replace the email above with your official address.</p>
+      </div>
+      <form class="rounded-2xl bg-brand-50 p-6 ring-1 ring-brand-100">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Name</label>
+            <input required class="mt-1 w-full rounded-lg border-slate-300 focus:border-brand-500 focus:ring-brand-500" type="text" placeholder="Your name" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Email</label>
+            <input required class="mt-1 w-full rounded-lg border-slate-300 focus:border-brand-500 focus:ring-brand-500" type="email" placeholder="you@example.com" />
+          </div>
+        </div>
+        <div class="mt-4">
+          <label class="block text-sm font-medium text-slate-700">What are you looking for?</label>
+          <select class="mt-1 w-full rounded-lg border-slate-300 focus:border-brand-500 focus:ring-brand-500">
+            <option>Artist Booking</option>
+            <option>Collaboration</option>
+            <option>Volunteer</option>
+            <option>General Enquiry</option>
+          </select>
+        </div>
+        <div class="mt-4">
+          <label class="block text-sm font-medium text-slate-700">Message</label>
+          <textarea rows="4" class="mt-1 w-full rounded-lg border-slate-300 focus:border-brand-500 focus:ring-brand-500" placeholder="Tell us about your idea..."></textarea>
+        </div>
+        <button type="submit" class="mt-5 inline-flex w-full items-center justify-center rounded-lg bg-slate-900 px-5 py-3 font-semibold text-white hover:bg-slate-800">Send Message</button>
+        <p class="mt-2 text-xs text-slate-500">This form is static for demo — wire it to your backend or a service like Formspree.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-slate-400 text-sm">© <span id="year"></span> A’LIVE. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="https://instagram.com/alive.sessions" target="_blank" class="text-slate-300 hover:text-white text-sm">Instagram</a>
+          <a href="#partners" class="text-slate-300 hover:text-white text-sm">Partners</a>
+          <a href="#contact" class="text-slate-300 hover:text-white text-sm">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Tiny JS -->
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => {
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
