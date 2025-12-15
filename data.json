@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Frontend Development",
+        "level": "Beginner",
+        "description": "Strong foundations in HTML, CSS, JavaScript and UI thinking."
+    },
+    {
+        "title": "DeepTech Innovation",
+        "level": "Intermediate",
+        "description": "Research-driven innovation, systems thinking and problem solving."
+    },
+    {
+        "title": "Psychology-Based Learning",
+        "level": "Advanced",
+        "description": "Applying cognitive science to build impactful learning experiences."
+    },
+    {
+        "title": "Web Performance & Architecture",
+        "level": "Intermediate",
+        "description": "Optimized, scalable and high-performance frontend systems."
+    }
+]
